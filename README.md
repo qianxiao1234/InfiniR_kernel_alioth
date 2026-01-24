@@ -1,5 +1,14 @@
-For Rom Devs: IF you want to inline this kernel in your Roms then do this before building ( In kernel root directory ):
-
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-
-Do this Everytime you clone the repo bcz this kernel has the support for Kernel-SU and it needs to be recloned and checkout to latest stable tag.
+# InfiniR Kernel for Redmi K40
+- 使用 ReSukiSU 作为默认 KSU
+- 无 KPM 支持
+- 无 SUSFS 支持
+- 仅支持 lz4
+- 内核版本 4.19.322
+## 使用方法：
+```bash
+./run.sh
+```
+## 更新KSU
+```bash
+curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash -s builtin
+```
