@@ -292,5 +292,6 @@ config SECURITY_PERF_EVENTS_RESTRICT
 	  perf_event_open syscall will be permitted unless it is
 	  changed.
 
+source "security/baseband-guard/Kconfig"
 endmenu
 

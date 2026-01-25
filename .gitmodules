@@ -2,3 +2,6 @@
 	path = KernelSU
 	url = https://github.com/ReSukiSU/ReSukiSU.git
 	branch = builtin
+[submodule "Baseband-guard"]
+	path = Baseband-guard
+	url = https://github.com/vc-teahouse/Baseband-guard.git
