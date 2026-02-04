@@ -1,4 +1,4 @@
-#/!/bin/sh
+#!/bin/sh
 # 修复（具体修复什么我也不知道，原脚本有的我就弄过来了）
 dts_source=arch/arm64/boot/dts/vendor/qcom
 sed -i 's/<70>/<695>/g' $dts_source/dsi-panel-j3s-37-02-0a-dsc-video.dtsi
@@ -43,6 +43,11 @@ sed -i 's/\/\/39 00 00 00 00 00 05 51 0F 8F 00 00/39 00 00 00 00 00 05 51 0F 8F 
 sed -i 's/\/\/39 01 00 00 00 00 05 51 07 FF 00 00/39 01 00 00 00 00 05 51 07 FF 00 00/g' $dts_source/dsi-panel-j2s-mp-42-02-0a-dsc-cmd.dtsi
 sed -i 's/\/\/39 00 00 00 00 00 03 51 03 FF/39 00 00 00 00 00 03 51 03 FF/g' $dts_source/dsi-panel-j9-38-0a-0a-fhd-video.dtsi
 sed -i 's/\/\/39 01 00 00 00 00 03 51 03 FF/39 01 00 00 00 00 03 51 03 FF/g' $dts_source/dsi-panel-j9-38-0a-0a-fhd-video.dtsi
+
+# 设置内核版本号
+LOCALVERSION="-perf-g$(git rev-parse --short=12 HEAD)"
+echo "内核版本号为：$(make kernelversion)$LOCALVERSION"
+sed -i "s/^CONFIG_LOCALVERSION=\".*\"/CONFIG_LOCALVERSION=\"${LOCALVERSION}\"/" out/.config
 
 # 编译
 make ARCH=arm64 O=out CC=clang CROSS_COMPILE=aarch64-linux-gnu- NM=llvm-nm OBJDUMP=llvm-objdump STRIP=llvm-strip alioth_defconfig
