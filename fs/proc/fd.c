@@ -11,6 +11,7 @@
 #include <linux/seq_file.h>
 #include <linux/fs.h>
 
+#include <linux/proc_fs.h>
 #include "../mount.h"
 #include "internal.h"
 #include "fd.h"
